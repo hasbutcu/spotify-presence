@@ -1,1 +1,3 @@
-# spotify-presence
+# 70 STARDA PAYLASILICAK
+
+[discord.gg/vsc](https://discord.gg/vsc)
