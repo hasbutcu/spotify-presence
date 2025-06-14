@@ -1,0 +1,21 @@
+{
+  "name": "spotify-self",
+  "version": "1.0.0",
+  "description": "spotify x discord",
+  "main": "index.js",
+  "author": "oxy",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "server": "node server.js"
+  },
+  "dependencies": {
+    "@discordjs/voice": "^0.18.0",
+    "child_process": "^1.0.2",
+    "discord.js-selfbot-v13": "^3.6.1",
+    "express": "^4.21.2",
+    "lowdb": "^1.0.0",
+    "node-fetch": "^3.3.2",
+    "path": "^0.12.7"
+  }
+}

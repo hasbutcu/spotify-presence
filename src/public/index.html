@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Spotify Şarkıları Yöneticisi</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      font-family: 'Circular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .info-message {
+      background-color: rgba(0, 120, 255, 0.2);
+      color: #0078ff;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      border-left: 4px solid #0078ff;
+    }
+    .edit-button,
+    .delete-button {
+      font-size: 12px;
+      padding: 8px 12px;
+      margin: 3px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .edit-button {
+      background-color: #1DB954;
+      color: white;
+    }
+
+    .delete-button {
+      background-color: #ff3e3e;
+      color: white;
+    }
+
+    .edit-button:hover,
+    .delete-button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .version-badge {
+      background-color: rgba(29, 185, 84, 0.2);
+      color: #1DB954;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 10px;
+      margin-left: 10px;
+      border: 1px solid #1DB954;
+      font-weight: 500;
+    }
+
+    .footer {
+      background-color: #181818;
+      padding: 20px 0;
+      margin-top: 40px;
+      border-top: 1px solid #333;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 0 20px;
+    }
+
+
+    .intro-text {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #b3b3b3;
+    }
+
+    .intro-text .highlight {
+      color: #1DB954;
+      font-weight: 600;
+    }
+
+    .social-links {
+      margin-top: 10px;
+    }
+
+    .social-link {
+      display: inline-block;
+      padding: 8px 15px;
+      background-color: #282828;
+      color: #b3b3b3;
+      text-decoration: none;
+      border-radius: 20px;
+      margin: 0 5px;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .social-link.discord {
+      background-color: rgba(114, 137, 218, 0.2);
+      color: #7289DA;
+      border: 1px solid #7289DA;
+    }
+
+    .social-link.discord:hover {
+      background-color: rgba(114, 137, 218, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .footer p {
+      color: #b3b3b3;
+      font-size: 14px;
+      margin: 10px 0;
+    }
+
+    .oxy-signature {
+      color: #1DB954;
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: 1px;
+    }
+
+    .discord-link {
+      display: flex;
+      align-items: center;
+      color: #b3b3b3;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .discord-link:hover {
+      color: #7289DA;
+    }
+
+    .discord-icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"/></svg>');
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    @media (max-width: 768px) {
+      .footer-content {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      color: #1DB954;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.8em;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    button {
+      background-color: #1DB954;
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      margin: 10px 5px;
+      border-radius: 500px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1ed760;
+      transform: scale(1.04);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background-color: rgba(40, 40, 40, 0.8);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    th,
+    td {
+      padding: 16px 20px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #333333;
+      color: #b3b3b3;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 400;
+    }
+
+    tr:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    img.album-cover {
+      width: 50px;
+      height: 50px;
+      border-radius: 4px;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 999;
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      backdrop-filter: blur(5px);
+    }
+
+    .overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.95);
+      background-color: #282828;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      width: 90%;
+      max-width: 450px;
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      display: none;
+    }
+
+    .modal.active {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+      display: block;
+    }
+
+    .modal h2 {
+      margin-top: 0;
+      color: #1DB954;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 25px;
+    }
+
+    .modal form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal label {
+      margin: 10px 0 8px;
+      font-weight: 600;
+      color: #b3b3b3;
+    }
+
+    .modal input[type="text"],
+    .modal textarea {
+      padding: 12px 15px;
+      border-radius: 4px;
+      border: 1px solid #333;
+      background-color: #3e3e3e;
+      color: white;
+      margin-bottom: 15px;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .modal input[type="text"]:focus,
+    .modal textarea:focus {
+      outline: none;
+      border-color: #1DB954;
+      box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.25);
+    }
+
+    .modal textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .modal-buttons {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+    }
+
+    .modal-buttons button {
+      margin-left: 10px;
+    }
+
+    .modal-buttons button:first-child {
+      background-color: transparent;
+      border: 1px solid #b3b3b3;
+      color: #b3b3b3;
+    }
+
+    .modal-buttons button:first-child:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    .header-bar {
+      background: linear-gradient(90deg, #121212 0%, #181818 50%, #121212 100%);
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 25px;
+      border-bottom: 1px solid #333;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modern-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 0 8px rgba(29, 185, 84, 0.5));
+      animation: pulse 3s infinite;
+    }
+
+    .logo-text {
+      font-size: 1.8em;
+      font-weight: 800;
+      background: linear-gradient(to right, #1DB954, #1ed760);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(29, 185, 84, 0.3);
+      letter-spacing: 1px;
+      position: relative;
+    }
+
+    .logo-text::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, #1DB954, #1ed760);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .modern-logo:hover .logo-text::after {
+      transform: scaleX(1);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      color: #ddd;
+    }
+
+    .social-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transform: scale(0);
+      transition: transform 0.3s ease;
+    }
+
+    .social-icon:hover::before {
+      transform: scale(1);
+    }
+
+    .social-icon svg {
+      z-index: 1;
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-5px);
+    }
+
+    .social-icon:hover svg {
+      transform: scale(1.1);
+    }
+
+    .github:hover {
+      color: #ffffff;
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .discord:hover {
+      color: #7289DA;
+      box-shadow: 0 5px 15px rgba(114, 137, 218, 0.3);
+    }
+
+    .youtube:hover {
+      color: #FF0000;
+      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+    }
+
+    .version-badge {
+      background: rgba(29, 185, 84, 0.2);
+      color: #1DB954;
+      font-size: 12px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid #1DB954;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .version-badge::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: all 0.8s ease;
+      z-index: -1;
+    }
+
+    .version-badge:hover::before {
+      left: 100%;
+    }
+
+    .version-badge:hover {
+      background-color: rgba(29, 185, 84, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(29, 185, 84, 0.3);
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px rgba(29, 185, 84, 0.3));
+      }
+
+      50% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 10px rgba(29, 185, 84, 0.5));
+      }
+
+      100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px rgba(29, 185, 84, 0.3));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .social-icons {
+        display: none;
+      }
+
+      .header-bar {
+        justify-content: space-between;
+      }
+    }
+
+    .version-badge {
+      background-color: rgba(29, 185, 84, 0.2);
+      color: #1DB954;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-left: 10px;
+      border: 1px solid #1DB954;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .version-badge:hover {
+      background-color: rgba(29, 185, 84, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(29, 185, 84, 0.2);
+    }
+
+    .spotify-logo {
+      color: white;
+      font-size: 2em;
+      font-weight: bold;
+      margin-right: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px 10px;
+      }
+
+      table th:nth-child(2),
+      table td:nth-child(2) {
+        display: none;
+      }
+
+      button {
+        padding: 10px 16px;
+        font-size: 12px;
+      }
+    }
+
+    .error-message {
+      background-color: rgba(255, 0, 0, 0.2);
+      color: #ff6b6b;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      border-left: 4px solid #ff6b6b;
+    }
+
+    button#startButton.disabled-button {
+      background-color: #ff4d4d !important;
+      cursor: not-allowed;
+    }
+
+    button#startButton.disabled-button:hover {
+      background-color: #ff4d4d !important;
+      transform: none;
+    }
+
+    .success-message {
+      background-color: rgba(29, 185, 84, 0.2);
+      color: #1DB954;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      border-left: 4px solid #1DB954;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header-bar">
+    <div class="modern-logo">
+      <div class="logo-icon">
+        <svg width="28" height="28" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M181.534 254.252C185.566 255.823 190.164 255.722 194.234 253.764L246.94 228.403C252.478 225.738 256 220.132 256 213.983V42.0181C256 35.8689 252.478 30.2638 246.94 27.5988L194.234 2.23681C188.893 -0.333132 182.642 0.296344 177.955 3.70418C177.285 4.191 176.647 4.73454 176.049 5.33354L75.149 97.3862L31.1992 64.0247C27.1079 60.9191 21.3853 61.1735 17.5855 64.63L3.48936 77.4525C-1.15853 81.6805 -1.16386 88.9926 3.47785 93.2274L41.5926 128L3.47785 162.773C-1.16386 167.008 -1.15853 174.32 3.48936 178.548L17.5855 191.37C21.3853 194.827 27.1079 195.081 31.1992 191.976L75.149 158.614L176.049 250.667C177.645 252.264 179.519 253.467 181.534 254.252ZM192.039 69.8853L115.479 128L192.039 186.115V69.8853Z"
+              fill="white" />
+          </mask>
+          <g mask="url(#mask0)">
+            <path
+              d="M246.94 27.6383L194.193 2.24138C188.088 -0.698302 180.791 0.541721 175.999 5.33332L3.32371 162.773C-1.32082 167.008 -1.31548 174.32 3.33337 178.548L17.4673 191.37C21.2671 194.827 26.9897 195.081 31.0809 191.976L239.003 34.2269C245.979 28.9347 255.999 33.9103 255.999 42.6667V42.0543C255.999 35.9078 252.478 30.3047 246.94 27.6383Z"
+              fill="#0065A9" />
+            <g filter="url(#filter0_d)">
+              <path
+                d="M246.94 228.362L194.193 253.759C188.088 256.698 180.791 255.458 175.999 250.667L3.32371 93.2272C-1.32082 88.9925 -1.31548 81.6802 3.33337 77.4523L17.4673 64.6298C21.2671 61.1733 26.9897 60.9188 31.0809 64.0245L239.003 221.773C245.979 227.065 255.999 222.09 255.999 213.333V213.946C255.999 220.092 252.478 225.695 246.94 228.362Z"
+                fill="#007ACC" />
+            </g>
+            <g filter="url(#filter1_d)">
+              <path
+                d="M194.196 253.763C188.089 256.7 180.792 255.459 176 250.667C181.904 256.571 192 252.389 192 244.039V11.9606C192 3.61057 181.904 -0.571175 176 5.33321C180.792 0.541166 188.089 -0.700607 194.196 2.23648L246.934 27.5985C252.476 30.2635 256 35.8686 256 42.0178V213.983C256 220.132 252.476 225.737 246.934 228.402L194.196 253.763Z"
+                fill="#1F9CF0" />
+            </g>
+            <g style="mix-blend-mode:overlay" opacity="0.25">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M181.378 254.252C185.41 255.822 190.008 255.722 194.077 253.764L246.783 228.402C252.322 225.737 255.844 220.132 255.844 213.983V42.0179C255.844 35.8687 252.322 30.2636 246.784 27.5986L194.077 2.23665C188.737 -0.333299 182.486 0.296177 177.798 3.70401C177.129 4.19083 176.491 4.73437 175.892 5.33337L74.9927 97.386L31.0429 64.0245C26.9517 60.9189 21.229 61.1734 17.4292 64.6298L3.33311 77.4523C-1.31478 81.6803 -1.32011 88.9925 3.32261 93.2273L41.4374 128L3.32261 162.773C-1.32011 167.008 -1.31478 174.32 3.33311 178.548L17.4292 191.37C21.229 194.827 26.9517 195.081 31.0429 191.976L74.9927 158.614L175.892 250.667C177.488 252.264 179.363 253.467 181.378 254.252ZM191.883 69.8851L115.323 128L191.883 186.115V69.8851Z"
+                fill="url(#paint0_linear)" />
+            </g>
+          </g>
+          <defs>
+            <filter id="filter0_d" x="-21.4896" y="40.5225" width="298.822" height="236.149"
+              filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+              <feOffset />
+              <feGaussianBlur stdDeviation="10.6667" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+              <feBlend mode="overlay" in2="BackgroundImageFix" result="effect1_dropShadow" />
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+            </filter>
+            <filter id="filter1_d" x="154.667" y="-20.6735" width="122.667" height="297.347"
+              filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+              <feOffset />
+              <feGaussianBlur stdDeviation="10.6667" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+              <feBlend mode="overlay" in2="BackgroundImageFix" result="effect1_dropShadow" />
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+            </filter>
+            <linearGradient id="paint0_linear" x1="127.844" y1="0.659988" x2="127.844" y2="255.34"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="white" />
+              <stop offset="1" stop-color="white" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <defs>
+          <linearGradient id="paint0_linear" x1="2" y1="12" x2="22" y2="12" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#1DB954" />
+            <stop offset="1" stop-color="#1ED760" />
+          </linearGradient>
+        </defs>
+        </svg>
+      </div>
+      <span class="logo-text">VSC Community</span>
+    </div>
+
+    <div class="social-icons">
+      <a href="https://github.com/hasbutcu" class="social-icon github" target="_blank" title="GitHub">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+        </svg>
+      </a>
+      <a href="https://discord.gg/vsc" class="social-icon discord" target="_blank" title="Discord">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z" />
+        </svg>
+      </a>
+      <a href="https://youtube.com/@WraithsDev" class="social-icon youtube" target="_blank" title="YouTube">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="version-badge">made with 💗 by oxy</div>
+  </div>
+  <div class="container">
+    <h1>Spotify Parça Yöneticisi</h1>
+    <div class="intro-text">
+      <p>Gerekli şarkıları website arayüzü sayesinde daha kolay bir şekilde ayarlayabilirsiniz. </p>
+    </div>
+    <div style="text-align:center;">
+      <button id="openLinkFormBtn">Link İle Ekle</button>
+      <button id="startButton">Başlat</button>
+    </div>
+    <table id="songsTable">
+      <thead>
+        <tr>
+          <th>Kapak</th>
+          <th>Track ID</th>
+          <th>Track Name</th>
+          <th>Album Name</th>
+          <th>Hareketler</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="overlay" class="overlay"></div>
+  <div id="startConfirmModal" class="modal">
+    <h2>Onay Gerekli</h2>
+    <div class="modal-content">
+      <p>Başlatmadan önce şunları kontrol etmelisin:</p>
+      <p>- En az 1 şarkı eklenmiş olmalı,</p>
+      <p>- settings.json dosyası doldurulmuş olmalı,</p>
+      <p>Aksi takdirde hata alabilirsin.</p>
+      <p>- Eğer başka bir bir yerde bunu zaten çalıştırdıysan onu kapatmalısın</p>
+      <p>Bunları yaptığını Onaylıyor ve başlatmaya devam etmek istiyor musun?</p>
+
+    </div>
+    <div class="modal-buttons">
+      <button type="button" id="cancelStartBtn">İptal Et</button>
+      <button type="button" id="confirmStartBtn">Onayla</button>
+    </div>
+  </div>
+  <div id="linkFormModal" class="modal">
+    <h2>Spotify Linkleri ile Ekle</h2>
+    <form id="linkForm">
+      <div id="linkFormMessage"></div>
+      <label for="linksInput">Spotify URL'lerini girin (her satırda bir link veya virgülle ayırarak):</label>
+      <textarea id="linksInput" placeholder="https://open.spotify.com/track/..." required></textarea>
+      <div class="modal-buttons">
+        <button type="button" id="cancelLinkFormBtn">İptal</button>
+        <button type="submit" id="submitLinkFormBtn">Ekle</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="editFormModal" class="modal">
+    <h2>Şarkı Düzenle</h2>
+    <form id="editForm">
+      <input type="hidden" id="editTrackId">
+      <div id="editFormMessage"></div>
+      <label for="editTrackName">Track Name:</label>
+      <input type="text" id="editTrackName" required>
+      <label for="editAlbumName">Album Name:</label>
+      <input type="text" id="editAlbumName" required>
+      <label for="editArtists">Artists (her satıra bir isim, 1 ile 4 arası):</label>
+      <textarea id="editArtists" placeholder="Her satıra bir artist ismi girin" required></textarea>
+      <div class="modal-buttons">
+        <button type="button" id="cancelEditFormBtn">İptal</button>
+        <button type="submit">Kaydet</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+
+    async function checkButtonStatus() {
+      const button = document.getElementById('startButton');
+
+      try {
+        const response = await fetch('/status');
+        if (!response.ok) throw new Error('Durum bilgisi alınamadı');
+
+        const data = await response.json();
+        if (data.started) {
+          button.textContent = 'Başlatıldı';
+          button.classList.add('disabled-button');
+          button.disabled = true;
+        } else {
+          button.textContent = 'Başlat';
+          button.classList.remove('disabled-button');
+          button.disabled = false;
+        }
+      } catch (error) {
+        console.error('Durum bilgisi alınırken hata:', error);
+        console.error(error);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log("DOM yüklendi, script çalışıyor");
+      checkButtonStatus();
+      const songsTableBody = document.querySelector('#songsTable tbody');
+      const overlay = document.getElementById('overlay');
+      const linkFormMessage = document.getElementById('linkFormMessage');
+      const editFormMessage = document.getElementById('editFormMessage');
+
+      const openLinkFormBtn = document.getElementById('openLinkFormBtn');
+      const linkFormModal = document.getElementById('linkFormModal');
+      const linkForm = document.getElementById('linkForm');
+      const cancelLinkFormBtn = document.getElementById('cancelLinkFormBtn');
+      const submitLinkFormBtn = document.getElementById('submitLinkFormBtn');
+
+      const editFormModal = document.getElementById('editFormModal');
+      const editForm = document.getElementById('editForm');
+      const cancelEditFormBtn = document.getElementById('cancelEditFormBtn');
+      const editTrackIdInput = document.getElementById('editTrackId');
+      const editTrackNameInput = document.getElementById('editTrackName');
+      const editAlbumNameInput = document.getElementById('editAlbumName');
+      const editArtistsInput = document.getElementById('editArtists');
+
+      let currentEditingSong = null;
+
+      console.log("Butonlar:", {
+        openLinkFormBtn: !!openLinkFormBtn,
+        linkFormModal: !!linkFormModal,
+        cancelLinkFormBtn: !!cancelLinkFormBtn
+      });
+
+
+      function showModal(modal) {
+        console.log("Modal gösteriliyor:", modal.id);
+        overlay.classList.add('active');
+        modal.classList.add('active');
+      }
+
+      function hideModal(modal) {
+        console.log("Modal gizleniyor:", modal.id);
+        overlay.classList.remove('active');
+        modal.classList.remove('active');
+      }
+
+      async function loadSongs() {
+        try {
+          console.log("Şarkılar yükleniyor...");
+          const response = await fetch('/songs');
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const songs = await response.json();
+          console.log(`${songs.length} şarkı yüklendi`);
+
+          songsTableBody.innerHTML = '';
+          songs.forEach(song => {
+            const albumCover = song.track && song.track.album && song.track.album.images && song.track.album.images.length > 0
+              ? `<img class="album-cover" src="${song.track.album.images[0].url}" alt="Album Cover">`
+              : '';
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>${albumCover}</td>
+              <td>${song.track ? song.track.id : 'N/A'}</td>
+              <td>${song.track ? song.track.name : 'N/A'}</td>
+              <td>${song.track && song.track.album ? song.track.album.name : 'N/A'}</td>
+              <td>
+                <button class="edit-button" data-id="${song.track ? song.track.id : ''}">Düzenle</button>
+                <button class="delete-button" data-id="${song.track ? song.track.id : ''}">Sil</button>
+              </td>
+            `;
+            songsTableBody.appendChild(tr);
+          });
+
+          document.querySelectorAll('.edit-button').forEach(button => {
+            button.addEventListener('click', function () {
+              openEditModal(this.getAttribute('data-id'));
+            });
+          });
+
+          document.querySelectorAll('.delete-button').forEach(button => {
+            button.addEventListener('click', function () {
+              deleteSong(this.getAttribute('data-id'));
+            });
+          });
+        } catch (error) {
+          console.error('Şarkılar yüklenirken hata oluştu:', error);
+        }
+      }
+
+      async function deleteSong(id) {
+        if (confirm('Bu şarkıyı silmek istediğinize emin misiniz?')) {
+          try {
+            const response = await fetch('/songs/' + id, { method: 'DELETE' });
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            console.log('Şarkı silindi, ID:', id);
+            loadSongs();
+          } catch (error) {
+            console.error('Şarkı silinirken hata oluştu:', error);
+            alert('Şarkı silinirken bir hata oluştu!');
+          }
+        }
+      }
+
+      async function openEditModal(id) {
+        try {
+          console.log('Düzenleme modalı açılıyor, ID:', id);
+          const response = await fetch('/songs');
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const songs = await response.json();
+          const song = songs.find(s => s.track && s.track.id === id);
+          if (!song) {
+            console.error('Şarkı bulunamadı, ID:', id);
+            return;
+          }
+
+          currentEditingSong = song;
+          editTrackIdInput.value = song.track.id;
+          editTrackNameInput.value = song.track.name;
+          editAlbumNameInput.value = song.track.album.name;
+          editArtistsInput.value = song.track.album.artists.map(artist => artist.name).join('\n');
+
+          showModal(editFormModal);
+        } catch (error) {
+          console.error('Düzenleme modalı açılırken hata oluştu:', error);
+          alert('Düzenleme modalı açılırken bir hata oluştu!');
+        }
+      }
+
+      if (openLinkFormBtn) {
+        openLinkFormBtn.addEventListener('click', function () {
+          console.log('Link ekleme butonu tıklandı');
+          document.getElementById('linksInput').value = '';
+          linkFormMessage.innerHTML = '';
+          showModal(linkFormModal);
+        });
+      } else {
+        console.error('openLinkFormBtn bulunamadı!');
+      }
+
+      if (cancelLinkFormBtn) {
+        cancelLinkFormBtn.addEventListener('click', function () {
+          console.log('Link ekleme iptal butonu tıklandı');
+          hideModal(linkFormModal);
+        });
+      } else {
+        console.error('cancelLinkFormBtn bulunamadı!');
+      }
+
+      if (editForm) {
+        editForm.addEventListener('submit', async function (e) {
+          e.preventDefault();
+          try {
+            console.log('Düzenleme formu gönderiliyor...');
+            currentEditingSong.track.name = editTrackNameInput.value;
+            currentEditingSong.track.album.name = editAlbumNameInput.value;
+
+            const artistsLines = editArtistsInput.value.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+            if (artistsLines.length < 1 || artistsLines.length > 4) {
+              editFormMessage.innerHTML = '<div class="error-message">Artist sayısı 1 ile 4 arasında olmalıdır.</div>';
+              return;
+            }
+            const newArtists = artistsLines.map((name, index) => {
+              if (currentEditingSong.track.album.artists && index < currentEditingSong.track.album.artists.length) {
+                return {
+                  ...currentEditingSong.track.album.artists[index],
+                  name: name
+                };
+              } else {
+                return {
+                  external_urls: { spotify: "" },
+                  href: "",
+                  id: "",
+                  name: name,
+                  type: "artist",
+                  uri: ""
+                };
+              }
+            });
+            currentEditingSong.track.album.artists = newArtists;
+
+            const response = await fetch('/songs/' + currentEditingSong.track.id, {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(currentEditingSong)
+            });
+
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            console.log('Şarkı güncellendi');
+            hideModal(editFormModal);
+            loadSongs();
+          } catch (error) {
+            console.error('Şarkı güncellenirken hata oluştu:', error);
+            editFormMessage.innerHTML = '<div class="error-message">Şarkı güncellenirken bir hata oluştu!</div>';
+          }
+        });
+      } else {
+        console.error('editForm bulunamadı!');
+      }
+
+      if (cancelEditFormBtn) {
+        cancelEditFormBtn.addEventListener('click', function () {
+          console.log('Düzenleme iptal butonu tıklandı');
+          hideModal(editFormModal);
+        });
+      } else {
+        console.error('cancelEditFormBtn bulunamadı!');
+      }
+
+      openLinkFormBtn.addEventListener('click', () => {
+        showModal(linkFormModal);
+      });
+      cancelLinkFormBtn.addEventListener('click', () => {
+        hideModal(linkFormModal);
+      });
+
+      linkForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        submitLinkFormBtn.disabled = true;
+        submitLinkFormBtn.textContent = 'Ekleniyor...';
+        linkFormMessage.innerHTML = '<div class="info-message">Şarkılar ekleniyor, lütfen bekleyin...</div>';
+
+        const linksInput = document.getElementById('linksInput').value;
+
+        try {
+          const response = await fetch('/songs/links', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ links: linksInput })
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const result = await response.json();
+
+          if (result.errors && result.errors.length > 0) {
+            let errorHtml = '<div class="error-message">';
+            errorHtml += `<p>${result.added.length} şarkı başarıyla eklendi, ${result.errors.length} şarkı eklenemedi:</p>`;
+            errorHtml += '<ul>';
+            result.errors.forEach(err => {
+              errorHtml += `<li>${err.link}: ${err.error}</li>`;
+            });
+            errorHtml += '</ul></div>';
+            linkFormMessage.innerHTML = errorHtml;
+          } else {
+            linkFormMessage.innerHTML = `<div class="success-message">${result.added.length} şarkı başarıyla eklendi!</div>`;
+            setTimeout(() => {
+              hideModal(linkFormModal);
+            }, 1500);
+          }
+
+          loadSongs();
+        } catch (error) {
+          console.error('Şarkı eklenirken hata oluştu:', error);
+          linkFormMessage.innerHTML = `<div class="error-message">İşlem sırasında bir hata oluştu: ${error.message}</div>`;
+        } finally {
+          submitLinkFormBtn.disabled = false;
+          submitLinkFormBtn.textContent = 'Ekle';
+        }
+      });
+      document.getElementById('startButton').addEventListener('click', function () {
+        showModal(document.getElementById('startConfirmModal'));
+      });
+
+      document.getElementById('confirmStartBtn').addEventListener('click', async function () {
+        const button = document.getElementById('startButton');
+        hideModal(document.getElementById('startConfirmModal'));
+
+        try {
+          button.disabled = true;
+          button.textContent = 'İşleniyor...';
+
+          const response = await fetch('/start-button', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+          });
+
+          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+          button.textContent = 'Başlatıldı';
+          button.classList.add('disabled-button');
+
+        } catch (error) {
+          console.error('Hata:', error);
+          alert('Hata oluştu: ' + error.message);
+
+          button.disabled = false;
+          button.textContent = 'Başlat';
+          button.classList.remove('disabled-button');
+        }
+      });
+
+      document.getElementById('cancelStartBtn').addEventListener('click', function () {
+        hideModal(document.getElementById('startConfirmModal'));
+      });
+      if (overlay) {
+        overlay.addEventListener('click', function () {
+          console.log('Overlay tıklandı');
+          hideModal(linkFormModal);
+          hideModal(editFormModal);
+        });
+      } else {
+        console.error('overlay bulunamadı!');
+      }
+
+      loadSongs();
+      console.log("Sayfa yüklendi, event listener'lar eklendi");
+    });
+  </script>
+</body>
+</html>

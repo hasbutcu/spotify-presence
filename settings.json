@@ -1,0 +1,6 @@
+{
+    "tokens": ["DISCORD_USER_TOKEN"],
+    "channels": ["VOICE_CHANNEL_ID"],
+    "Client": "SPOTIFY_CLIENT_ID",
+    "Secret": "SPOTIFY_CLIENT_SECRET"
+}

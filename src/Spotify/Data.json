@@ -1,0 +1,677 @@
+{
+  "items": [
+    {
+      "track": {
+        "album": {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/1PDcVWGthnDkYv57hoQSpG"
+              },
+              "href": "https://api.spotify.com/v1/artists/1PDcVWGthnDkYv57hoQSpG",
+              "id": "1PDcVWGthnDkYv57hoQSpG",
+              "name": "SWIRF",
+              "type": "artist",
+              "uri": "spotify:artist:1PDcVWGthnDkYv57hoQSpG"
+            },
+            {
+              "external_urls": {
+                "spotify": ""
+              },
+              "href": "",
+              "id": "",
+              "name": "oxyinc",
+              "type": "artist",
+              "uri": ""
+            }
+          ],
+          "href": "https://api.spotify.com/v1/albums/4597fsPBawT0tsOwftCFu4",
+          "images": [
+            {
+              "url": "https://i.scdn.co/image/ab67616d0000b273981aeced7f4038fb6257386b",
+              "width": 640,
+              "height": 640
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00001e02981aeced7f4038fb6257386b",
+              "width": 300,
+              "height": 300
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00004851981aeced7f4038fb6257386b",
+              "width": 64,
+              "height": 64
+            }
+          ],
+          "name": "MAHVETHAYATIMI",
+          "uri": "spotify:album:4597fsPBawT0tsOwftCFu4"
+        },
+        "duration_ms": 101516,
+        "id": "6j6eSVxFcwFE1UesFPfaXa",
+        "name": "MAHVETHAYATIMI"
+      }
+    },
+    {
+      "track": {
+        "album": {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/2ivdJjs8c34cBxVmNI6zSK"
+              },
+              "href": "https://api.spotify.com/v1/artists/2ivdJjs8c34cBxVmNI6zSK",
+              "id": "2ivdJjs8c34cBxVmNI6zSK",
+              "name": "13 Killoki",
+              "type": "artist",
+              "uri": "spotify:artist:2ivdJjs8c34cBxVmNI6zSK"
+            },
+            {
+              "external_urls": {
+                "spotify": ""
+              },
+              "href": "",
+              "id": "",
+              "name": "oxyinc",
+              "type": "artist",
+              "uri": ""
+            }
+          ],
+          "href": "https://api.spotify.com/v1/albums/4Si5MoanBRQh5u6dwISIwV",
+          "images": [
+            {
+              "url": "https://i.scdn.co/image/ab67616d0000b273a9db84e7ec498df1b106f790",
+              "width": 640,
+              "height": 640
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00001e02a9db84e7ec498df1b106f790",
+              "width": 300,
+              "height": 300
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00004851a9db84e7ec498df1b106f790",
+              "width": 64,
+              "height": 64
+            }
+          ],
+          "name": "SUKUNA ITADORI",
+          "uri": "spotify:album:4Si5MoanBRQh5u6dwISIwV"
+        },
+        "duration_ms": 117333,
+        "id": "6GyaylJPnwV5MLSVogeOqS",
+        "name": "SUKUNA ITADORI"
+      }
+    },
+    {
+      "track": {
+        "album": {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/2qW4eDZVrF6mlcuaTBEMjh"
+              },
+              "href": "https://api.spotify.com/v1/artists/2qW4eDZVrF6mlcuaTBEMjh",
+              "id": "2qW4eDZVrF6mlcuaTBEMjh",
+              "name": "DEHA INC.",
+              "type": "artist",
+              "uri": "spotify:artist:2qW4eDZVrF6mlcuaTBEMjh"
+            },
+            {
+              "external_urls": {
+                "spotify": ""
+              },
+              "href": "",
+              "id": "",
+              "name": "oxyinc",
+              "type": "artist",
+              "uri": ""
+            }
+          ],
+          "href": "https://api.spotify.com/v1/albums/68XuzZK2emJBTMqdGvB8CD",
+          "images": [
+            {
+              "url": "https://i.scdn.co/image/ab67616d0000b273e4a551870aaf335b0fa1e0d9",
+              "width": 640,
+              "height": 640
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00001e02e4a551870aaf335b0fa1e0d9",
+              "width": 300,
+              "height": 300
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00004851e4a551870aaf335b0fa1e0d9",
+              "width": 64,
+              "height": 64
+            }
+          ],
+          "name": "ALÆCARTE-X",
+          "uri": "spotify:album:68XuzZK2emJBTMqdGvB8CD"
+        },
+        "duration_ms": 92834,
+        "id": "0eThhRe5r2ZZdKIU8yAngk",
+        "name": "ALÆCARTE-X"
+      }
+    },
+    {
+      "track": {
+        "album": {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/7iFAfXcK8ZUdM50TOkNqnB"
+              },
+              "href": "https://api.spotify.com/v1/artists/7iFAfXcK8ZUdM50TOkNqnB",
+              "id": "7iFAfXcK8ZUdM50TOkNqnB",
+              "name": "SWIRF",
+              "type": "artist",
+              "uri": "spotify:artist:7iFAfXcK8ZUdM50TOkNqnB"
+            },
+            {
+              "external_urls": {
+                "spotify": ""
+              },
+              "href": "",
+              "id": "",
+              "name": "oxyinc",
+              "type": "artist",
+              "uri": ""
+            }
+          ],
+          "href": "https://api.spotify.com/v1/albums/1I95KgXNzr3TywyezSEyfl",
+          "images": [
+            {
+              "url": "https://i.scdn.co/image/ab67616d0000b27306305112851310f8693c8379",
+              "width": 640,
+              "height": 640
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00001e0206305112851310f8693c8379",
+              "width": 300,
+              "height": 300
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d0000485106305112851310f8693c8379",
+              "width": 64,
+              "height": 64
+            }
+          ],
+          "name": "Şeker 2.0",
+          "uri": "spotify:album:1I95KgXNzr3TywyezSEyfl"
+        },
+        "duration_ms": 181368,
+        "id": "2OqhiQkAwZAxdVOXCjEr39",
+        "name": "Şeker 2.0"
+      }
+    },
+    {
+      "track": {
+        "album": {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/7ArB8gQrI7TYa175Pwuh4Q"
+              },
+              "href": "https://api.spotify.com/v1/artists/7ArB8gQrI7TYa175Pwuh4Q",
+              "id": "7ArB8gQrI7TYa175Pwuh4Q",
+              "name": "oxyinc",
+              "type": "artist",
+              "uri": "spotify:artist:7ArB8gQrI7TYa175Pwuh4Q"
+            }
+          ],
+          "href": "https://api.spotify.com/v1/albums/4HvXrPbfiUM60ocpu0DkRP",
+          "images": [
+            {
+              "url": "https://i.scdn.co/image/ab67616d0000b2734f289d45445806f80c46b289",
+              "width": 640,
+              "height": 640
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00001e024f289d45445806f80c46b289",
+              "width": 300,
+              "height": 300
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d000048514f289d45445806f80c46b289",
+              "width": 64,
+              "height": 64
+            }
+          ],
+          "name": "SPASTIKSOUND",
+          "uri": "spotify:album:4HvXrPbfiUM60ocpu0DkRP"
+        },
+        "duration_ms": 105256,
+        "id": "47fiE49BLUWaJNuJWGYG5u",
+        "name": "SPASTIKSOUND"
+      }
+    },
+    {
+      "track": {
+        "album": {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/2qW4eDZVrF6mlcuaTBEMjh"
+              },
+              "href": "https://api.spotify.com/v1/artists/2qW4eDZVrF6mlcuaTBEMjh",
+              "id": "2qW4eDZVrF6mlcuaTBEMjh",
+              "name": "DEHA INC.",
+              "type": "artist",
+              "uri": "spotify:artist:2qW4eDZVrF6mlcuaTBEMjh"
+            },
+            {
+              "external_urls": {
+                "spotify": ""
+              },
+              "href": "",
+              "id": "",
+              "name": "oxyinc",
+              "type": "artist",
+              "uri": ""
+            }
+          ],
+          "href": "https://api.spotify.com/v1/albums/1iSKjZIHdehjgb4pu5Oq3E",
+          "images": [
+            {
+              "url": "https://i.scdn.co/image/ab67616d0000b273f2d5ab30352b686afd7605af",
+              "width": 640,
+              "height": 640
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00001e02f2d5ab30352b686afd7605af",
+              "width": 300,
+              "height": 300
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00004851f2d5ab30352b686afd7605af",
+              "width": 64,
+              "height": 64
+            }
+          ],
+          "name": "Her Günüm Ayrı Bi Dert",
+          "uri": "spotify:album:1iSKjZIHdehjgb4pu5Oq3E"
+        },
+        "duration_ms": 126743,
+        "id": "0sKG6EYYqMLngG6W4t4ELR",
+        "name": "Her Günüm Ayrı Bi Dert"
+      }
+    },
+    {
+      "track": {
+        "album": {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/1PDcVWGthnDkYv57hoQSpG"
+              },
+              "href": "https://api.spotify.com/v1/artists/1PDcVWGthnDkYv57hoQSpG",
+              "id": "1PDcVWGthnDkYv57hoQSpG",
+              "name": "SWIRF",
+              "type": "artist",
+              "uri": "spotify:artist:1PDcVWGthnDkYv57hoQSpG"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/2qW4eDZVrF6mlcuaTBEMjh"
+              },
+              "href": "https://api.spotify.com/v1/artists/2qW4eDZVrF6mlcuaTBEMjh",
+              "id": "2qW4eDZVrF6mlcuaTBEMjh",
+              "name": "DEHA INC.",
+              "type": "artist",
+              "uri": "spotify:artist:2qW4eDZVrF6mlcuaTBEMjh"
+            },
+            {
+              "external_urls": {
+                "spotify": ""
+              },
+              "href": "",
+              "id": "",
+              "name": "oxyinc",
+              "type": "artist",
+              "uri": ""
+            }
+          ],
+          "href": "https://api.spotify.com/v1/albums/1ERZizOCR80qmDSgMwEJO2",
+          "images": [
+            {
+              "url": "https://i.scdn.co/image/ab67616d0000b2731aaa6cc57342eb96f8d75917",
+              "width": 640,
+              "height": 640
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00001e021aaa6cc57342eb96f8d75917",
+              "width": 300,
+              "height": 300
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d000048511aaa6cc57342eb96f8d75917",
+              "width": 64,
+              "height": 64
+            }
+          ],
+          "name": "ZAMAN KAÇ",
+          "uri": "spotify:album:1ERZizOCR80qmDSgMwEJO2"
+        },
+        "duration_ms": 130979,
+        "id": "2nA1pbJKTJDfIdwX1bKKrx",
+        "name": "ZAMAN KAÇ"
+      }
+    },
+    {
+      "track": {
+        "album": {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/0avt3FunV6iOOd308ngfVM"
+              },
+              "href": "https://api.spotify.com/v1/artists/0avt3FunV6iOOd308ngfVM",
+              "id": "0avt3FunV6iOOd308ngfVM",
+              "name": "zenu",
+              "type": "artist",
+              "uri": "spotify:artist:0avt3FunV6iOOd308ngfVM"
+            },
+            {
+              "external_urls": {
+                "spotify": ""
+              },
+              "href": "",
+              "id": "",
+              "name": "oxyinc",
+              "type": "artist",
+              "uri": ""
+            }
+          ],
+          "href": "https://api.spotify.com/v1/albums/0po16RhV7wqS5bb72Xb9Kz",
+          "images": [
+            {
+              "url": "https://i.scdn.co/image/ab67616d0000b273d6b28381ab8469c0e1540ca2",
+              "width": 640,
+              "height": 640
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00001e02d6b28381ab8469c0e1540ca2",
+              "width": 300,
+              "height": 300
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00004851d6b28381ab8469c0e1540ca2",
+              "width": 64,
+              "height": 64
+            }
+          ],
+          "name": "benimle öl",
+          "uri": "spotify:album:0po16RhV7wqS5bb72Xb9Kz"
+        },
+        "duration_ms": 136216,
+        "id": "2NAfRSBw4GNUh8JcqYgPtR",
+        "name": "benimle öl"
+      }
+    },
+    {
+      "track": {
+        "album": {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/0avt3FunV6iOOd308ngfVM"
+              },
+              "href": "https://api.spotify.com/v1/artists/0avt3FunV6iOOd308ngfVM",
+              "id": "0avt3FunV6iOOd308ngfVM",
+              "name": "zenu",
+              "type": "artist",
+              "uri": "spotify:artist:0avt3FunV6iOOd308ngfVM"
+            },
+            {
+              "external_urls": {
+                "spotify": ""
+              },
+              "href": "",
+              "id": "",
+              "name": "oxyinc",
+              "type": "artist",
+              "uri": ""
+            }
+          ],
+          "href": "https://api.spotify.com/v1/albums/4SSxBLrvYWilVPjfofEgx1",
+          "images": [
+            {
+              "url": "https://i.scdn.co/image/ab67616d0000b273fd2c364c91b35859b503f9e2",
+              "width": 640,
+              "height": 640
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00001e02fd2c364c91b35859b503f9e2",
+              "width": 300,
+              "height": 300
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00004851fd2c364c91b35859b503f9e2",
+              "width": 64,
+              "height": 64
+            }
+          ],
+          "name": "SENI_VAR_ETTIM!",
+          "uri": "spotify:album:4SSxBLrvYWilVPjfofEgx1"
+        },
+        "duration_ms": 100746,
+        "id": "6b8hrIQFenZzOV397spBaP",
+        "name": "SENI_VAR_ETTIM!"
+      }
+    },
+    {
+      "track": {
+        "album": {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/0avt3FunV6iOOd308ngfVM"
+              },
+              "href": "https://api.spotify.com/v1/artists/0avt3FunV6iOOd308ngfVM",
+              "id": "0avt3FunV6iOOd308ngfVM",
+              "name": "zenu",
+              "type": "artist",
+              "uri": "spotify:artist:0avt3FunV6iOOd308ngfVM"
+            },
+            {
+              "external_urls": {
+                "spotify": ""
+              },
+              "href": "",
+              "id": "",
+              "name": "oxyinc",
+              "type": "artist",
+              "uri": ""
+            }
+          ],
+          "href": "https://api.spotify.com/v1/albums/4TPXjliH6r4RWERDlg7F4C",
+          "images": [
+            {
+              "url": "https://i.scdn.co/image/ab67616d0000b273ad82f127a39a0e9405613f8f",
+              "width": 640,
+              "height": 640
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00001e02ad82f127a39a0e9405613f8f",
+              "width": 300,
+              "height": 300
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00004851ad82f127a39a0e9405613f8f",
+              "width": 64,
+              "height": 64
+            }
+          ],
+          "name": "kaltaklar cenneti",
+          "uri": "spotify:album:4TPXjliH6r4RWERDlg7F4C"
+        },
+        "duration_ms": 121846,
+        "id": "2sSEM6SH9bEatb23iHcZxR",
+        "name": "kaltaklar cenneti"
+      }
+    },
+    {
+      "track": {
+        "album": {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/0avt3FunV6iOOd308ngfVM"
+              },
+              "href": "https://api.spotify.com/v1/artists/0avt3FunV6iOOd308ngfVM",
+              "id": "0avt3FunV6iOOd308ngfVM",
+              "name": "zenu",
+              "type": "artist",
+              "uri": "spotify:artist:0avt3FunV6iOOd308ngfVM"
+            },
+            {
+              "external_urls": {
+                "spotify": ""
+              },
+              "href": "",
+              "id": "",
+              "name": "oxy",
+              "type": "artist",
+              "uri": ""
+            }
+          ],
+          "href": "https://api.spotify.com/v1/albums/3oz68kbniQHNPi5n7CrmNu",
+          "images": [
+            {
+              "url": "https://i.scdn.co/image/ab67616d0000b2734cf9b793ffe7a92806af6f57",
+              "width": 640,
+              "height": 640
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00001e024cf9b793ffe7a92806af6f57",
+              "width": 300,
+              "height": 300
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d000048514cf9b793ffe7a92806af6f57",
+              "width": 64,
+              "height": 64
+            }
+          ],
+          "name": "GECESAAT1000",
+          "uri": "spotify:album:3oz68kbniQHNPi5n7CrmNu"
+        },
+        "duration_ms": 130432,
+        "id": "25nQGVpC1xKIBzU6NrdwUK",
+        "name": "GECESAAT1000"
+      }
+    },
+    {
+      "track": {
+        "album": {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/1spo5AJ302sAMnRXUPlSy1"
+              },
+              "href": "https://api.spotify.com/v1/artists/1spo5AJ302sAMnRXUPlSy1",
+              "id": "1spo5AJ302sAMnRXUPlSy1",
+              "name": "Kuty",
+              "type": "artist",
+              "uri": "spotify:artist:1spo5AJ302sAMnRXUPlSy1"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/2ivdJjs8c34cBxVmNI6zSK"
+              },
+              "href": "https://api.spotify.com/v1/artists/2ivdJjs8c34cBxVmNI6zSK",
+              "id": "2ivdJjs8c34cBxVmNI6zSK",
+              "name": "13 Killoki",
+              "type": "artist",
+              "uri": "spotify:artist:2ivdJjs8c34cBxVmNI6zSK"
+            },
+            {
+              "external_urls": {
+                "spotify": ""
+              },
+              "href": "",
+              "id": "",
+              "name": "oxy",
+              "type": "artist",
+              "uri": ""
+            }
+          ],
+          "href": "https://api.spotify.com/v1/albums/7JniV84yoMv2r37fw5KWhU",
+          "images": [
+            {
+              "url": "https://i.scdn.co/image/ab67616d0000b273d3166fdb8bf7a3e67acab0fa",
+              "width": 640,
+              "height": 640
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00001e02d3166fdb8bf7a3e67acab0fa",
+              "width": 300,
+              "height": 300
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00004851d3166fdb8bf7a3e67acab0fa",
+              "width": 64,
+              "height": 64
+            }
+          ],
+          "name": "NASCAR 2",
+          "uri": "spotify:album:7JniV84yoMv2r37fw5KWhU"
+        },
+        "duration_ms": 123428,
+        "id": "2yCowVLnR1TYKjHoLJoLdy",
+        "name": "NASCAR 2"
+      }
+    },
+    {
+      "track": {
+        "album": {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/2qW4eDZVrF6mlcuaTBEMjh"
+              },
+              "href": "https://api.spotify.com/v1/artists/2qW4eDZVrF6mlcuaTBEMjh",
+              "id": "2qW4eDZVrF6mlcuaTBEMjh",
+              "name": "DEHA INC.",
+              "type": "artist",
+              "uri": "spotify:artist:2qW4eDZVrF6mlcuaTBEMjh"
+            },
+            {
+              "external_urls": {
+                "spotify": ""
+              },
+              "href": "",
+              "id": "",
+              "name": "OXY INC.",
+              "type": "artist",
+              "uri": ""
+            }
+          ],
+          "href": "https://api.spotify.com/v1/albums/3eNRPqV9twKRrurwdcrPtH",
+          "images": [
+            {
+              "url": "https://i.scdn.co/image/ab67616d0000b273bf6404b9ea4bb718631ff6e3",
+              "width": 640,
+              "height": 640
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00001e02bf6404b9ea4bb718631ff6e3",
+              "width": 300,
+              "height": 300
+            },
+            {
+              "url": "https://i.scdn.co/image/ab67616d00004851bf6404b9ea4bb718631ff6e3",
+              "width": 64,
+              "height": 64
+            }
+          ],
+          "name": "7PAЯADIS",
+          "uri": "spotify:album:3eNRPqV9twKRrurwdcrPtH"
+        },
+        "duration_ms": 98337,
+        "id": "5fN6DXUT8bfyhcyQBz9NVa",
+        "name": "7PAЯADIS"
+      }
+    }
+  ]
+}
