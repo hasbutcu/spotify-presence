@@ -27,8 +27,8 @@
 
 1. Repoyu klonlayın:
    ```bash
-   git clone https://github.com/hasbutcu/discordxspotify-presence.git
-   cd discordxspotify-presence
+   git clone https://github.com/hasbutcu/spotify-presence.git
+   cd spotify-presence
    ```
 
 2. Bağımlılıkları yükleyin:
